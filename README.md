@@ -1,1 +1,1 @@
-# code-editor-example
+# Code Editor Example
