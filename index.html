@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Html Render</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="codemirror/doc/docs.css">
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="codemirror/theme/material-darker.css">
+  </head>
+<body>
+  <div class="main-content">
+    <div class="text-center"><h1>Code Editor</h1></div>
+    <div id="content-actions">
+      <div class="btn-group pull-right" role="group">
+        <select id="saved-select" class="form-select mr-2 history-select" onchange="selectChanged()"></select>
+        <button type="button" class="btn btn-primary" onclick="showModal('save-modal')"><i class="fa fa-save pr-3"></i>Save</button>
+      </div>
+    </div>
+    <div id="display-content" class="card clearfix display-content normal">
+      <div id="html-content"></div>
+    </div>
+    <div id="code-content" class="card code-content normal">
+      <div id="code-actions card-header">
+        <div class="btn-group pull-right" role="group">
+          <button type="button" class="btn btn-secondary mr-2" onclick="minimize()"><i class="fa fa-circle pr-3"></i>Minimize</button>
+          <button type="button" class="btn btn-primary" onclick="runCode()"><i class="fa fa-play pr-3"></i>Run</button>
+        </div>
+      </div>
+      <div id="code-slot" class="code-slot">
+        <div class="row row-no-padding">
+          <div id="js-area" class="col-md-4">
+            <div class="text-center">JS</div>
+            <div class="card code-slot-field">
+              <textarea id="js-textarea" onchange="editorChanged('jsValue', $event)"></textarea>
+            </div>
+          </div>
+          <div id="html-area" class="col-md-4">
+            <div class="text-center">HTML</div>
+            <div class="card code-slot-field">
+              <textarea id="html-textarea" name="html-textarea" onchange="editorChanged('htmlValue', $event)"></textarea>
+            </div>
+          </div>
+          <div id="css-area" class="col-md-4">
+            <div class="text-center">CSS</div>
+            <div class="card code-slot-field">
+              <textarea id="css-textarea" onchange="editorChanged('cssValue', $event)"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="save-modal" tabindex="-1" role="dialog" aria-labelledby="save-modal-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="save-modal-label" class="modal-title">Save Codes</h5>
+          <button type="button" class="close" onclick="hideModal('save-modal')" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span>Name</span>
+          <input id="saved-name" type="text" class="form-control"></input>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="hideModal('save-modal')">Close</button>
+          <button type="button" class="btn btn-primary" onclick="save()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  <script src="codemirror/lib/codemirror.js"></script>
+  <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="codemirror/mode/javascript/javascript.js"></script>
+  <script src="codemirror/mode/css/css.js"></script>
+  <script src="codemirror/addon/hint/show-hint.js"></script>
+  <script src="codemirror/addon/hint/xml-hint.js"></script>
+  <script src="codemirror/addon/hint/html-hint.js"></script>
+  <script src="codemirror/mode/xml/xml.js"></script>
+  <script src="codemirror/addon/selection/active-line.js"></script>
+</body>
+</html>

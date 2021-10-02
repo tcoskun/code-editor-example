@@ -1,0 +1,67 @@
+.main-content {
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background: #cbcbcb;
+}
+.display-content {
+  max-width: 700px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: auto;
+  top: 2px;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.code-content {
+  margin-top: 10px;
+}
+.clearfix {
+  clear: both;
+}
+.code-slot {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.code-slot-field {
+  height: 200px;
+  overflow: auto;
+}
+.row-no-padding > [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.display-block {
+  display: block !important;
+}
+.history-select {
+  min-width: 100px;
+}
+.normal {
+  transform: scale(1);
+  transition-property: all;
+  transition-duration: 3s;
+}
+
+.minimize {
+  margin: 0 auto;
+  transform: scale(0.4);
+  transition-property: all;
+  transition-duration: 3s;
+}
+
+.maximize {
+  margin: 0 auto;
+  transform: scale(1.5);
+  transition-property: all;
+  transition-duration: 3s;
+}
+
+.code-area-transform {
+  transform: scale(1.01);
+  z-index: 1000;
+}
